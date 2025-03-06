@@ -92,6 +92,10 @@ inputs.forEach((input) => {
       if (input.value.length > 3) {
         input.value = input.value.slice(0, 3);
       }
+
+      if (input.value.length < 3) {
+        viewError(input, "must have 3 characters");
+      }
     }
   });
 });

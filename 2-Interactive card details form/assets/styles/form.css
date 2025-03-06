@@ -54,6 +54,7 @@
   }
 
   & span{
+    white-space: nowrap;
     position: absolute;
     bottom: -1.8rem;
     left: 0;
