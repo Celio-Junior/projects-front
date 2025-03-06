@@ -1,0 +1,26 @@
+{
+  "name": "1-product-list-with-cart",
+  "version": "1.0.0",
+  "description": "create cart shopping",
+  "main": "main.ts",
+  "scripts": {
+    "build": "tsx",
+    "dev": "webpack -w"
+  },
+  "author": "celio junior",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
+    "@typescript-eslint/parser": "^8.22.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "prettier": "^3.4.2",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

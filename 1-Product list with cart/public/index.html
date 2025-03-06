@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/styles/global.css">
+  <link rel="stylesheet" href="./assets/styles/desserts.css">
+  <link rel="stylesheet" href="./assets/styles/account.css">
+  <link rel="stylesheet" href="./assets/styles/order.css">
+  <title>Product list with cart</title>
+  <script src="./assets/js/bundle.js" defer></script>
+</head>
+<body>
+  <main id="container">
+    <section class="choice-desserts">
+      <header id="container-title">
+        <h1>Desserts</h1>
+      </header>
+
+      <div class="products">
+        <!-- <article class="product-dessert">
+          <header class="product-header">
+            <div class="card-img">
+              <picture>
+                <source srcset="./assets/images/image-baklava-mobile.jpg" media="(max-width: 400px)">
+                <source srcset="./assets/images/image-baklava-tablet.jpg" media="(max-width: 750px)">
+                <img src="./assets/images/image-baklava-desktop.jpg" alt="image ${name}">
+              </picture>
+            </div>
+            <button class="button-add" data-name="${name}">
+              <div class="button-dessert">
+                <img src="./assets/images/icon-add-to-cart.svg" alt="icon cart">
+                Add to Cart
+              </div>
+
+              <div class="button-incremented no-exist">
+                <div class="replace-img-svg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="2" fill="none" viewBox="0 0 10 2"><path fill="#fff" d="M0 .375h10v1.25H0V.375Z"/></svg>
+                </div>
+
+                <span class="quantity-of-product">1</span>
+
+                <div class="replace-img-svg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10"><path fill="#fff" d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"/></svg>
+                </div>
+              </div>
+            </button>
+          </header>
+
+          <div class="description">
+            <span class="category">${category}</span>
+            <h3 class="product-name">${name}</h3>
+            <span class="price">${zeroRight(price)}</span>
+          </div>
+        </article> -->
+      </div>
+    </section>
+
+    <!-- depois eu vejo isso -->
+
+    <section class="account">
+      <header class="account-header">
+        <h2>Your Cart ( <span id="products-amount">0</span> )</h2>
+      </header>
+
+      <div id="img-empty-itens">
+        <img src="./assets/images/illustration-empty-cart.svg" alt="cart empty">
+        <span>
+          Your added items will apper here
+        </span>
+      </div>
+
+      <div id="products-account">
+
+        <!-- <div class="card-product">
+          <strong class="product-name">name teste</strong>
+          <div class="description-item">
+            <span aria-label="quantity">3x</span>
+            <span aria-label="price-uni-product">5.50</span>
+            <span aria-label="price-total-product">16.50</span>
+          </div>
+          <svg class="button-remove" viewBox="0 0 30 30">
+            <circle cx="15" cy="15" r="10"/>
+            <line x1="10" y1="20" x2="20" y2="10" />
+            <line x1="10" y1="10" x2="20" y2="20" />
+          </svg>
+        </div> -->
+
+      </div>
+      <div class="products-buy">
+        <div class="product-value">
+          <h3>Order total</h3>
+          <span class="price-total">valor</span>
+        </div>
+        <p class="img-carbon">
+          <img src="./assets/images/icon-carbon-neutral.svg" alt="icon carbon">
+          <span>this <b>carbon-neutral</b> delivery</span>
+        </p>
+        <button class="button-buy">Confim Order</button>
+      </div>
+    </section>
+  </main>
+  <div class="black-box no-exist">
+    <div class="order-confimation">
+      <div class="title-order">
+        <img src="./assets/images/icon-order-confirmed.svg" alt="order-confimation">
+        <h2>Order Comfirmed</h2>
+        <p>We hope you enjoy food!</p>
+      </div>
+      <div id="products-order">
+        <!-- <div class="card-order">
+          <div class="img-tumbnail">
+            <img src="./assets/images/image-baklava-thumbnail.jpg" alt="teste tumbnail">
+          </div>
+
+          <div class="description-item">
+            <strong class="product-name">name teste</strong>
+            <div class="description-price-item">
+              <span aria-label="quantity">3x</span>
+              <span aria-label="price-uni-product">5.50</span>
+              <span aria-label="price-total-product">16.50</span>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="container-order-confirmerd">
+        <div class="product-value">
+          <h3>Order total</h3>
+          <span class="price-total">valor</span>
+        </div>
+        <button type="button" class="button-confimed-order">Start New Order</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="building Interactive card details form">
+  <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="./assets/styles/global.css">
+  <link rel="stylesheet" href="./assets/styles/card.css">
+  <link rel="stylesheet" href="./assets/styles/form.css">
+
+  <script src="./assets/js/main.js" defer></script>
+
+  <title>Interactive card details form</title>
+</head>
+<body>
+  <main id="container">
+    <div class="card-box">
+      <div class="card-img" id="card-modify-details">
+        <img src="./assets/images/card-logo.svg" alt="two circle white">
+
+        <div class="card-details-view">
+          <span id="card-details-number">0000 0000 0000 0000</span>
+          <span id="card-details-name">Jane Appleseed</span>
+          <span id="card-details-data">00/00</span>
+        </div>
+      </div>
+
+      <div class="card-img" id="card-static">
+        <!-- <img src="./assets/images/bg-card-back.png" alt="back of card"> -->
+      </div>
+    </div>
+    
+    <form action="#" id="form-card-details">
+      <fieldset class="form-group-card">
+        <div class="box-input">
+          <label for="cardHolder-name">CardHolder name</label>
+          <input type="text" id="cardHolder-name" placeholder="e.g Jane Appleseed" autocomplete="off">
+        </div>
+        
+        <div class="box-input">
+          <label for="card-number">Card number</label>
+          <input type="text" id="card-number" placeholder="e.g 1234 5678 9123 0000" autocomplete="off">
+        </div>
+        
+        <div class="box-input">
+          <label for="Exp-Date">Exp. Date (MM/YY)</label>
+          <div class="box-date-input">
+            <input type="text" id="date-Mounth" placeholder="MM" autocomplete="off">
+            <input type="text" id="date-Year" placeholder="YY" autocomplete="off">
+          </div>
+        </div>
+        
+        <div class="box-input">
+          <label for="cvc">cvc</label>
+          <input type="text" id="cvc" placeholder="e.g 123" autocomplete="off">
+        </div>
+
+      </fieldset>
+      
+      <fieldset class="card-confirmed" style="display: none;">
+        <img src="./assets/images/icon-complete.svg" alt="icon complete blue">
+        <h2>Thank you!</h2>
+        <p>
+          We`ve added your card details
+        </p>
+      </fieldset>
+      
+      <button type="submit">Confirm</button>
+
+    </form>
+  </main>
+</body>
+</html>

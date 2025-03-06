@@ -1,0 +1,135 @@
+#form-card-details{
+  gap: 2rem;
+}
+
+/* form */
+.form-group-card{
+  display: grid;
+  width: 60%;
+  min-width: 30rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "name name" "number number" "date cvc";
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+.form-group-card .box-input :where(label, input){
+  display: block;
+  font-size: 1.4rem;
+}
+
+.form-group-card .box-input{
+  position: relative;
+  
+  /* all labels */
+  & label{
+    letter-spacing: .2rem;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* all inputs */
+  & input{
+    width: 100%;
+    padding: 1.5rem;
+    border: .2rem solid var(--Light_grayish_violet);
+    border-radius: 1rem;
+    outline: none;
+    background-clip: padding-box, border-box;
+    transition: all 200ms ease-in-out;
+
+    &::placeholder{
+      color: var(--Light_grayish_violet)
+    }
+
+    &:focus{
+      border-color: transparent;
+      background-image: linear-gradient(var(--White), var(--White)), radial-gradient(circle at top left, var(--Linear_gradient_color1), var(--Linear_gradient_color2));
+    }
+
+    &.error{
+      border-color: var(--Red);
+    }
+  }
+
+  & span{
+    position: absolute;
+    bottom: -1.8rem;
+    left: 0;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+    &.error{
+      opacity: 1;
+      color: var(--Red);
+    }
+    /* lembrar de criar repositorio pra todos */
+  }
+
+}
+
+.box-input:nth-child(1){
+  grid-area: name;
+}
+.box-input:nth-child(2){
+  grid-area: number;
+}
+.box-input:nth-child(3){
+  grid-area: date;
+
+  & label{
+    white-space: nowrap;
+  }
+
+  & .box-date-input{
+    display: flex;
+    flex-flow: nowrap row;
+    gap: 1rem;
+  }
+}
+.box-input:nth-child(4){
+  grid-area: cvc;
+
+}
+
+/* talvez faço animação */
+#form-card-details button{
+  position: relative;
+  width: 60%;
+  min-width: 30rem;
+  background-color: var(--Very_dark_violet);
+  color: var(--White);
+  border: none;
+  font-size: 1.6rem;
+  padding: 2rem;
+  font-weight: 500;
+  letter-spacing: .1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  transition: all 200ms ease-in-out;
+  margin-top: 1rem;
+
+  &::before{
+    content: "";
+    position: absolute;
+    width: 0.2rem;
+    height: 100%;
+    transform: rotateZ(-10deg);
+    background-image: linear-gradient(to top, var(--White), transparent);
+    top:0;
+    bottom: 0;
+    left:-10%;
+    transition: all 1s linear;
+  }
+  
+  &:hover::before{
+    transition: all 1.5s linear;
+    transition-delay: 500ms;
+    left: 110%;
+  }
+
+  &:hover{
+    transform: scale(1.08);
+  }
+}

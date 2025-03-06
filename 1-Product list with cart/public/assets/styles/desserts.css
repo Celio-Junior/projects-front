@@ -1,0 +1,129 @@
+/* header */
+.choice-desserts #container-title{
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+/* main */
+
+.products{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 19rem);
+  gap: 2rem;
+}
+
+.product-dessert{
+  display: grid;
+  flex-flow: nowrap column;
+  gap: 3rem;
+  width: 100%;
+}
+
+
+/* images */
+.product-header{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.products .product-header{
+  max-width: 100%;
+  max-height: auto;
+  & .card-img{
+    border: 0.2rem solid transparent;
+    border-radius: 1rem;
+    overflow: hidden;
+    &.product-dessert-border{
+      border: 0.2rem solid var(--Red);
+    }
+  }
+}
+
+.products .product-header img{
+  width: 100%;
+  height: 100%;
+}
+
+/* button add */
+.product-header .button-add{
+  position: relative;
+  overflow: hidden;
+  width: 15rem;
+  height: 5.2rem;
+  position: absolute;
+  z-index: 1;
+  bottom: -2rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 0.1rem solid var(--Red);
+  /* padding: 1.5rem 2.5rem; */
+  border-radius: 3rem;
+  transition: color 200ms ease-in-out;
+  &:hover{
+    color: var(--Red)
+  }
+}
+.button-add .button-dessert img{
+  max-width: 2.5rem;
+  height: 2.5rem;
+}
+
+.button-add .button-dessert{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.button-add :where(.button-incremented, .button-dessert){
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-add .button-incremented{
+
+  background-color: var(--Red);
+  color: var(--Rose_50);
+  cursor: auto;
+  &:hover{
+    color: var(--Rose_50)
+  }
+}
+
+.button-add .button-incremented svg{
+  width: 2rem;
+  height: 1.5rem;
+  cursor: pointer;
+  fill: var(--Red);
+}
+
+/* fazer a descrição ahhh */
+.description{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.6rem;
+  color: var(--Rose_900);
+  font-weight: bold;
+  & .product-name{
+    font-size: 1.4rem
+  };
+  & .category{
+    color: var(--Rose_300)
+  };
+  & .price{
+    color: var(--Red);
+    &::before{
+      content: "$";
+    }
+  }
+}
+
+.description :where(.category, .price) {
+  font-size: 1.5rem;
+}
+

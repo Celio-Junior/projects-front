@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+/* global */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Elements */
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  /* font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal; */
+}
+
+fieldset{
+  border: none;
+}
+
+:root{
+  font-size: 62.5%;
+
+/* ### Primary */
+  --Linear_gradient_color1: hsl(249, 99%, 64%);
+  --Linear_gradient_color2: hsl(278, 94%, 30%);
+  --Red: hsl(0, 100%, 66%); /*(input errors)*/
+
+/* ### Neutral */
+
+  --White: hsl(0, 0%, 100%);
+  --Light_grayish_violet: hsl(270, 3%, 87%);
+  --Dark_grayish_violet: hsl(279, 6%, 55%);
+  --Very_dark_violet: hsl(278, 68%, 11%);
+}
+
+#container{
+  display: flex;
+  flex-direction: row;
+  width: 100dvw;
+  max-width: 144rem;
+  min-width: 35rem;
+  height: 100dvh;
+  max-height: 90rem;
+  background-color: var(--White);
+  background-image: url(./../images/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-size: 30% 100%;
+}
+
+#container :where(.card-box, #form-card-details){
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-flow: nowrap column;
+  align-items: center;
+}
+
+/* fazer o responsivo tlg */

@@ -1,0 +1,139 @@
+.account .account-header{
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  color: var(--Red);
+}
+.account{
+  padding: 3rem;
+  background-color: var(--Rose_50);
+  min-height: 30vh;
+  height: fit-content;
+  border-radius: 2rem;
+}
+#img-empty-itens{
+  width: 100%;
+  max-width: 20rem;
+  max-height: 20rem;
+  margin: 0 auto;
+  & span{
+    width: fit-content;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+#img-empty-itens img{
+  width: 100%;
+  height: auto;
+}
+
+.card-product{
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  position: relative;
+  /* padding: 2rem; */
+  padding: 1rem 0;
+  /* border-bottom: 0.1rem solid var(--Rose_300); */
+  box-shadow: 0rem 0.1rem 0rem var(--Rose_300);
+  & .product-name{
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+#products-account{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#products-account .description-item{
+  display: flex;
+  gap: 1.3rem;
+}
+
+.description-item span:first-child{
+  color: var(--Red);
+  font-weight: bold;
+}
+
+.description-item span:nth-child(1)::after{
+  content: "x";
+  color: currentColor;
+}
+
+.description-item span:nth-child(2){
+  color: var(--Rose_500);
+  &::before{
+    white-space: nowrap;
+    content: "@ $";
+  }
+}
+.description-item span:nth-child(3){
+  color: var(--Rose_900);
+}
+
+.button-remove{
+  cursor: pointer;
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: var(--Rose_500);
+  & circle{
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1;
+  };
+
+  & line{
+    stroke: currentColor;
+    stroke-width: 1;
+  }
+}
+
+.products-buy{
+  width: 100%;
+  margin-top: 1.5rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  & .img-carbon{
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    margin: 3rem 0;
+  }
+  & .button-buy{
+    width: 100%;
+    font-size: 2rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--Red);
+    color: var(--Rose_50);
+    cursor: pointer;
+  }
+}
+.product-value{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  & h3{
+    font-size: clamp(1.5rem, 2vw, 1.9rem);
+    font-weight: normal;
+  }
+  & .price-total{
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+    font-weight: bold;
+    &::before{
+      content: "$";
+    }
+  }
+}
+
+.no-exist ~ .products-buy{
+  display: flex;
+}
