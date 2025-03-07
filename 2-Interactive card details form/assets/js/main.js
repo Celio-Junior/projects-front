@@ -1,9 +1,19 @@
+import {
+  createSpanError,
+  errorsRemove,
+  formatCardNumber,
+  viewError,
+  formatNames,
+} from "./functions.js";
+
 /**
  * @type {HTMLFormElement} tag element form
  * @description tag elemento form
  */
 const form = document.querySelector("#form-card-details");
-
+const formGroups = form.querySelectorAll(
+  'fieldset[aria-describedby="form-group"]'
+);
 /**
  * @type {NodeListOf<HTMLInputElement>}
  * @description all inputs
@@ -13,6 +23,7 @@ const inputs = form.querySelectorAll(".box-input input");
 const cardNumberElement = document.querySelector("#card-details-number");
 const cardNameElement = document.querySelector("#card-details-name");
 const cardDataElement = document.querySelector("#card-details-data");
+const cardCvcElement = document.querySelector("#card-details-cvc");
 
 /**
  * @type {string}
@@ -32,6 +43,7 @@ let checkError = false;
  * @description cache de data
  */
 let cacheData = "";
+
 // events input
 inputs.forEach((input) => {
   // create erros
@@ -51,9 +63,18 @@ inputs.forEach((input) => {
     if (input.value === "") {
       viewError(input, `Can´t be blank`);
     }
+    if (input.id === "cardHolder-name") {
+      if (input.value.trim().length > 40) {
+        input.value = input.value.slice(0, 41);
+      }
 
-    if (input.id === "cardHolder-name" && input.value.trim().length < 13) {
-      viewError(input, "must have at least 13 characters");
+      if (input.value.match(/\d/)) {
+        input.value = input.value.slice(0, input.value.length - 1);
+      }
+
+      if (input.value.trim().length < 13) {
+        viewError(input, "must have at least 13 characters");
+      }
     }
 
     // rest of the inputs accept number
@@ -104,10 +125,17 @@ inputs.forEach((input) => {
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
   checkError = false;
+
   inputs.forEach((input) => {
     errorsRemove(input);
 
     // VALIDATIONS
+
+    if (input.id === "cardHolder-name" && input.value.trim().length < 13) {
+      viewError(input, "must have at least 13 characters");
+      checkError = true;
+    }
+
     if (input.id === "card-number") {
       const inputClear = input.value.replaceAll(" ", "");
       formatCardNumber(input);
@@ -126,7 +154,7 @@ form?.addEventListener("submit", (e) => {
 
     // entering data into the card
     if (input.id === "cardHolder-name") {
-      cardNameElement.textContent = input.value;
+      cardNameElement.textContent = formatNames(input.value.trim());
     }
 
     if (input.id === "card-number") {
@@ -143,59 +171,23 @@ form?.addEventListener("submit", (e) => {
         cacheData = "";
       }
     }
+
+    if (input.id === "cvc") {
+      cardCvcElement.textContent = input.value;
+    }
+  });
+
+  if (checkError) return;
+
+  formGroups.forEach((elementForm) => {
+    if (
+      elementForm.classList.contains("card-confirmed") &&
+      elementForm.classList.contains("active")
+    ) {
+      // clear
+      // input.value = "";
+      inputs.forEach((input) => (input.value = ""));
+    }
+    elementForm.classList.toggle("active");
   });
 });
-
-/**
- * @param {HTMLInputElement} input
- * @returns {void}
- * */
-function errorsRemove(input) {
-  /**@type {HTMLSpanElement} */
-  const spanError = input.nextElementSibling;
-  if (spanError && spanError.classList.contains("error"))
-    spanError.removeAttribute("class");
-  if (input.classList.contains("error")) input.removeAttribute("class");
-}
-
-/**
- *
- * @param {HTMLInputElement} element
- * @param {string} text
- * @returns {void}
- *
- */
-
-function viewError(element, text = "") {
-  element.classList.add("error");
-  const spanError = element.nextElementSibling
-    ? element.nextElementSibling
-    : element.previousElementSibling;
-  if (!spanError.classList.contains("error")) spanError.classList.add("error");
-  spanError.innerHTML = text;
-}
-
-/**
- * @param {HTMLInputElement} input
- * @returns {void}
- */
-function createSpanError(input) {
-  const span = document.createElement("span");
-  if (input.id === "date-Year") return;
-  // span.classList.add("error");
-  input.insertAdjacentElement("afterend", span);
-}
-
-/**
- * @param {HTMLInputElement} element
- * @returns {void}
- */
-function formatCardNumber(element) {
-  const value = element.value.replaceAll(" ", "").split("");
-  for (let i = 0; i < value.length; i++) {
-    if (i === 3) value.splice(4, 0, " ");
-    if (i === 7) value.splice(9, 0, " ");
-    if (i === 12) value.splice(14, 0, " ");
-  }
-  element.value = value.join("");
-}

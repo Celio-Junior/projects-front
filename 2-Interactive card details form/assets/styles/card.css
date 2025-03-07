@@ -6,12 +6,13 @@
 
 .card-box .card-img{
   position: relative;
-  min-width: 28rem;
+  min-width: 29rem;
   width: 50%;
-  max-width: 30rem;
+  max-width: 29rem;
+  min-height: 15rem;
   height: 15rem;
   border-radius: 1rem;
-  /* left: 20%; */
+  transition: all 200ms ease-in-out;
 }
 
 .card-box .card-img#card-modify-details{
@@ -34,13 +35,13 @@
     & span{
       display: block;
       letter-spacing: .2rem;
+      text-transform: capitalize;
     }
 
     & span#card-details-number{
       flex: 0 0 100%;
       font-size: 1.8rem;
       text-align: center;
-      text-transform: capitalize;
     }
 
     & span:nth-child(1n+2){
@@ -58,8 +59,20 @@
 }
 
 .card-box .card-img#card-static{
-  left: 10%;
+  position: relative;
   background-image: url(./../images/bg-card-back.png);
   background-repeat: no-repeat;
   background-size: cover;
+  left: 10%;
+  
+  & > #card-details-cvc{
+    position: absolute;
+    right: 13%;
+    top:50%;
+    transform: translateY(-20%);
+    color: var(--White);
+    font-weight: 500;
+    font-size: 1.2rem;
+    letter-spacing: .2rem;
+  }
 }

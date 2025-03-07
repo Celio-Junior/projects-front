@@ -16,9 +16,6 @@ body{
   width: 100%;
   height: 100vh;
   font-family: "Space Grotesk", sans-serif;
-  /* font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal; */
 }
 
 fieldset{
@@ -43,12 +40,12 @@ fieldset{
 
 #container{
   display: flex;
-  flex-direction: row;
+  flex-flow: wrap  row;
   width: 100dvw;
   max-width: 144rem;
-  min-width: 35rem;
+  min-width: 30rem;
   height: 100dvh;
-  max-height: 90rem;
+  max-height: 108rem;
   background-color: var(--White);
   background-image: url(./../images/bg-main-desktop.png);
   background-repeat: no-repeat;
@@ -59,8 +56,29 @@ fieldset{
   width: 50%;
   display: flex;
   justify-content: center;
-  flex-flow: nowrap column;
   align-items: center;
+  flex-flow: nowrap column;
 }
 
-/* fazer o responsivo tlg */
+@media (max-width: 700px){
+  #container{
+    background-image: url(./../images/bg-main-mobile.png);
+    background-size: 100% 40%;
+  }
+  #container :where(.card-box, #form-card-details){
+    width: 100%;
+  }
+
+  #container .card-box{
+    height: 40dvh;
+    gap: 0;
+  }
+
+  .card-box .card-img#card-modify-details{
+    transform: translateY(110%) scale(0.8);
+    z-index: 1;
+  }
+  .card-box .card-img#card-static{
+    transform: translateY(-50%) scale(0.8);;
+  }
+}

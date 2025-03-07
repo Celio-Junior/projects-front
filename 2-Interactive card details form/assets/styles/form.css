@@ -1,14 +1,21 @@
 #form-card-details{
   gap: 2rem;
+  position: relative;
+}
+
+#form-card-details :where(.form-group-card, .card-confirmed){
+  position: absolute;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  z-index: -1;
 }
 
 /* form */
 .form-group-card{
   display: grid;
   width: 60%;
-  min-width: 30rem;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "name name" "number number" "date cvc";
+  grid-template-areas: "name name" "number number" "date cvc" "button button";
   column-gap: 2rem;
   row-gap: 2rem;
 }
@@ -96,8 +103,9 @@
 
 /* talvez faço animação */
 #form-card-details button{
+  grid-area: button;
   position: relative;
-  width: 60%;
+  overflow: hidden;
   min-width: 30rem;
   background-color: var(--Very_dark_violet);
   color: var(--White);
@@ -133,4 +141,29 @@
   &:hover{
     transform: scale(1.08);
   }
+}
+
+
+.card-confirmed{
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  & h2{
+    font-size: 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  & p{
+    color: var(--Dark_grayish_violet);
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}
+
+#form-card-details .active{
+  z-index: 1;
+  opacity: 1;
 }
