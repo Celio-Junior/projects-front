@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* ## Sizes */
+  width: 100%;
+  min-height: 94.4dvh;
+}
+
+:root {
+  /* ## Text */
+  font-size: 62.5%;
+  font-family: 'Noto Sans', sans-serif;
+
+  /* ## Colors */
+
+  /* ### Neutral */
+
+  --Neutral_900: hsl(227, 75%, 14%);
+  --Neutral_800: hsl(226, 25%, 17%);
+  --Neutral_700: hsl(225, 23%, 24%);
+  --Neutral_600: hsl(226, 11%, 37%);
+  --Neutral_300: hsl(0, 0%, 78%);
+  --Neutral_200: hsl(217, 61%, 90%);
+  --Neutral_100: hsl(0, 0%, 93%);
+  --Neutral_0: hsl(200, 60%, 99%);
+
+  /* ### Red */
+
+  --Red_400: hsl(3, 86%, 64%);
+  --Red_500: hsl(3, 71%, 56%);
+  --Red_700: hsl(3, 77%, 44%);
+
+  /* ### Gradient */
+
+  --Light_Gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+  --Dark_Gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
+.container {
+  max-width: 144rem;
+  width: 100%;
+  min-width: 37.5rem;
+  margin: 0 auto;
+  padding: 0 3rem 3rem;
+}
+
+.dark {
+  background: var(--Dark_Gradient);
+  color: var(--Neutral_100);
+}
+.light {
+  background: var(--Light_Gradient);
+  color: var(--Neutral_900);
+}
+
+.button {
+  display: inline-block;
+  border: 0.2rem solid transparent;
+  font-size: 1.8rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  color: inherit;
+  box-shadow: 0 0 0.1rem var(--Neutral_600);
+  text-shadow: 0 0 0.1rem currentColor;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.3rem var(--Red_400);
+  }
+}
+
+body.dark :where(.button, .box-extension) {
+  background-color: var(--Neutral_700);
+}
+
+body.light :where(#header .box-rectangle, .button, .box-extension) {
+  background-color: var(--Neutral_100); /*provisorio*/
+  box-shadow: 0.1rem 0.1rem 0.1rem var(--Neutral_600);
+}

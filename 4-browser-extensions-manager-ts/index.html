@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <script src="./src/main.ts" type="module" defer></script>
+
+  <title>Browser extensions manager UI</title>
+</head>
+<body class="dark">
+  <header id="header" class="container">
+    <div class="box-rectangle">
+      <h1 id="logo"><img src="./images/logo.svg" alt=""></h1>
+
+      <button id="button-thema">
+        <img src="./images/icon-sun.svg" alt="icon of sun">
+        <img src="./images/icon-moon.svg" style="display: none;" alt=" icon of moon">
+      </button>
+    </div>
+
+    <div id="selections-mode-extensions">
+      <h2>Extensions List</h2>
+      
+      <nav>
+        <ul class="navigation">
+          <li><button type="button" id="button-all" class="button active">All</button></li>
+          <li><button type="button" id="button-active" class="button">Active</button></li>
+          <li><button type="button" id="button-inactive" class="button">Inactive</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="container-extensions" class="container">
+
+    <!-- <div class="box-extension">
+      
+      <div class="box-header">
+        <img src="./images/logo-devlens.svg" alt="logo devlens">
+
+        <div class="box-text">
+          <h3>Devlens</h3>
+  
+          <p>Quickly inspect page layouts and visualize element boundaries.</p>
+        </div>
+      </div>
+
+      <div class="nav-input-extension">
+        <input type="checkbox">
+        <button type="button" class="button">Remove</button>
+        <span class="extension-active"></span>
+      </div>
+
+    </div> -->
+
+  </main>
+</body>
+</html>

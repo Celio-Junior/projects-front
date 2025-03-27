@@ -1,0 +1,101 @@
+@import './global.css';
+
+#header {
+  margin-top: 4rem;
+}
+
+body.dark #header .box-rectangle {
+  background-color: var(--Neutral_800);
+}
+
+#header .box-rectangle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  border-radius: 2rem;
+  transition: all 300ms ease;
+}
+
+#button-thema {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  padding: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  border-radius: 1rem;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.3rem var(--Red_400);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Neutral_300);
+    border-radius: 1rem;
+    box-shadow: 0 0 0.2rem var(--Neutral_600);
+    opacity: 0.3;
+    /* talvez coloca z-index */
+  }
+
+  &:hover img {
+    transform: scale(1.15);
+    filter: brightness(150%);
+  }
+
+  & img {
+    transition: all 200ms ease-in-out;
+    width: 2.2rem;
+    height: auto;
+  }
+}
+
+/* parte 2 */
+#selections-mode-extensions {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 6rem;
+
+  /* subtitle */
+  & h2 {
+    font-size: 3rem;
+  }
+}
+
+/* depois mexo aqui no focus */
+#selections-mode-extensions .navigation {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  /* buttons */
+  & button {
+    transition: all 250ms ease-in-out;
+    &:hover {
+      filter: brightness(120%);
+    }
+    &.active {
+      background-color: var(--Red_400);
+      color: var(--Neutral_900);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  #selections-mode-extensions {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,103 @@
+@import './global.css';
+
+/* ver o tamanho do mobile(tem scrol horizontal, tem que ver isso depois */
+
+#container-extensions {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(42rem, 30%));
+  justify-content: center;
+}
+
+#container-extensions .box-extension {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+  width: 100%;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  & .box-header {
+    display: flex;
+    gap: 1.5rem;
+    & img {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    & h3 {
+      font-size: 2rem;
+      margin-bottom: 0.3em;
+    }
+    & p {
+      font-size: 1.8rem;
+    }
+  }
+
+  & .nav-input-extension {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & .button-remove {
+      font-size: 1.6rem;
+      padding: 1rem;
+    }
+
+    & .extension-active {
+      border: none;
+      display: block;
+      cursor: pointer;
+      border-radius: 2rem;
+      width: 4rem;
+      height: 2rem;
+      position: relative;
+      transition: all 200ms ease-in-out;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.3rem var(--Red_400);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        width: 1.6rem;
+        height: 1.6rem;
+        top: 0.2rem;
+        left: 0;
+        background-color: var(--Neutral_0);
+        border-radius: 50%;
+        transition: inherit;
+      }
+    }
+
+    & input[type='checkbox'] {
+      display: none;
+    }
+
+    & input:checked {
+      & ~ .extension-active::before {
+        left: 56%;
+      }
+
+      & ~ .extension-active {
+        background-color: var(--Red_400);
+      }
+    }
+  }
+}
+
+/* thema dinamico */
+body.dark .box-extension p {
+  color: var(--Neutral_300);
+}
+body.light .box-extension p {
+  color: var(--Neutral_600);
+}
+
+body.dark .extension-active {
+  background-color: var(--Neutral_600);
+}
+body.light .extension-active {
+  background-color: var(--Neutral_300);
+}

@@ -1,0 +1,17 @@
+(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))s(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const c of o.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&s(c)}).observe(document,{childList:!0,subtree:!0});function i(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(e){if(e.ep)return;e.ep=!0;const o=i(e);fetch(e.href,o)}})();const u="./images/logo.svg",y=document.querySelector("#logo");let d=null;const f=async(t,n=!1)=>{if(!y)return;let s=(await(await fetch(t)).text()).trim();d||(d=s.replace('fill="#091540','fill="#eee"')),n&&(s=d),y.innerHTML=s};f(u,!0);const r=document.querySelector("#button-thema"),l=r==null?void 0:r.querySelectorAll("img"),a=document.body,g=()=>{a.classList.contains("dark")?(a.classList.remove("dark"),a.classList.add("light"),f(u,!1),p("dark")):(a.classList.remove("light"),a.classList.add("dark"),f(u,!0),p("light"))};function p(t){if(t==="dark"){l[0].style.display="none",l[1].style.display="inline";return}t==="light"&&(l[0].style.display="inline",l[1].style.display="none")}r==null||r.addEventListener("click",g);const b=async function(){return await(await fetch("./database/data.json")).json()}(),x=t=>{const{name:n,description:i,logo:s,isActive:e}=t;return`
+        <div class="box-header">
+        <img src=${s} alt="logo devlens">
+
+        <div class="box-text">
+          <h3>${n}</h3>
+  
+          <p>${i}</p>
+        </div>
+      </div>
+
+      <div class="nav-input-extension">
+        <input data-active=${e} type="checkbox">
+        <button type="button" class="button button-remove">Remove</button>
+        <button type="button" class="extension-active"></button>
+      </div>`};(async function(){const t=document.querySelector("#container-extensions"),n=document.querySelectorAll('.navigation button[type="button"]');if(!t)return;(await b).forEach(e=>{const o=document.createElement("div");o.classList.add("box-extension"),o.innerHTML=x(e);const c=o.querySelector('input[type="checkbox"]'),h=o.querySelector(".extension-active"),m=o.querySelector(".button-remove");v(c),E(c,h),L(o,m),t.append(o)});const s=t.querySelectorAll(".box-extension");S(n,s),console.log("main file")})();function L(t,n){n.addEventListener("click",()=>t.remove())}function v(t){const n=t.getAttribute("data-active")==="true";t.checked=n}function E(t,n){n.addEventListener("click",()=>{const i=t.getAttribute("data-active")==="true";t.setAttribute("data-active",`${!i}`),v(t)})}function S(t,n){t.forEach((i,s)=>{i.addEventListener("click",()=>{k(t,s),i.id==="button-all"&&n.forEach(e=>e.style.display="flex"),i.id==="button-active"&&n.forEach(e=>{const o=e.querySelector('input[type="checkbox"]');o&&(o.checked?e.style.display="flex":e.style.display="none")}),i.id==="button-inactive"&&n.forEach(e=>{const o=e.querySelector('input[type="checkbox"]');o&&(o.checked?e.style.display="none":e.style.display="flex")})})})}function k(t,n){t.forEach((i,s)=>{if(s===n&&i.classList.add("active"),s!==n&&i.classList.contains("active"))return i.classList.remove("active")})}
+//# sourceMappingURL=index-DRYJJTLz.js.map
